@@ -31,7 +31,7 @@ def tampilkan_visualisasi(pertanyaan):
     if pertanyaan == 'Bagaimana demografi customer di setiap wilayah?':
         # Menghitung jumlah customer per state dari DataFrame customers_df
         st.subheader("Sebaran Demografi Pelanggan")
-        customers_df = pd.read_csv('data/customers_dataset.csv')
+        customers_df = pd.read_csv('../dataa/customers_dataset.csv')
         customer_state = customers_df.groupby('customer_state')['customer_unique_id'].nunique().reset_index()
         customer_state.rename(columns={'customer_unique_id': 'customer_count'}, inplace=True)
 
@@ -85,7 +85,7 @@ def tampilkan_visualisasi(pertanyaan):
     elif pertanyaan == 'Bagaimana demografi sellers di setiap wilayah?':
         # Menghitung jumlah seller per state dari DataFrame sellers_df
         st.subheader("Sebaran Demografi Seller")
-        sellers_df = pd.read_csv('data/sellers_dataset.csv')
+        sellers_df = pd.read_csv('../data/sellers_dataset.csv')
         seller_state = sellers_df.groupby('seller_state')['seller_id'].nunique().reset_index()
         seller_state.rename(columns={'seller_id': 'seller_count'}, inplace=True)
 
