@@ -31,7 +31,7 @@ def tampilkan_visualisasi(pertanyaan):
     if pertanyaan == 'Bagaimana demografi customer di setiap wilayah?':
         # Menghitung jumlah customer per state dari DataFrame customers_df
         st.subheader("Sebaran Demografi Pelanggan")
-        customers_df = pd.read_csv('..dashboard/customers_dataset.csv')
+        customers_df = pd.read_csv('dashboard/customers_dataset.csv')
         customer_state = customers_df.groupby('customer_state')['customer_unique_id'].nunique().reset_index()
         customer_state.rename(columns={'customer_unique_id': 'customer_count'}, inplace=True)
 
