@@ -85,7 +85,7 @@ def tampilkan_visualisasi(pertanyaan):
     elif pertanyaan == 'Bagaimana demografi sellers di setiap wilayah?':
         # Menghitung jumlah seller per state dari DataFrame sellers_df
         st.subheader("Sebaran Demografi Seller")
-        sellers_df = pd.read_csv('../data/sellers_dataset.csv')
+        sellers_df = pd.read_csv('data/sellers_dataset.csv')
         seller_state = sellers_df.groupby('seller_state')['seller_id'].nunique().reset_index()
         seller_state.rename(columns={'seller_id': 'seller_count'}, inplace=True)
 
