@@ -31,7 +31,7 @@ def tampilkan_visualisasi(pertanyaan):
     if pertanyaan == 'Bagaimana demografi customer di setiap wilayah?':
         # Menghitung jumlah customer per state dari DataFrame customers_df
         st.subheader("Sebaran Demografi Pelanggan")
-        customers_df = pd.read_csv('../data/customers_dataset.csv')
+        customers_df = pd.read_csv('data/customers_dataset.csv')
         customer_state = customers_df.groupby('customer_state')['customer_unique_id'].nunique().reset_index()
         customer_state.rename(columns={'customer_unique_id': 'customer_count'}, inplace=True)
 
@@ -85,7 +85,7 @@ def tampilkan_visualisasi(pertanyaan):
     elif pertanyaan == 'Bagaimana demografi sellers di setiap wilayah?':
         # Menghitung jumlah seller per state dari DataFrame sellers_df
         st.subheader("Sebaran Demografi Seller")
-        sellers_df = pd.read_csv('../data/sellers_dataset.csv')
+        sellers_df = pd.read_csv('data/sellers_dataset.csv')
         seller_state = sellers_df.groupby('seller_state')['seller_id'].nunique().reset_index()
         seller_state.rename(columns={'seller_id': 'seller_count'}, inplace=True)
 
@@ -159,8 +159,8 @@ def tampilkan_visualisasi(pertanyaan):
     elif pertanyaan == 'Bagaimana hubungan antara ketersediaan seller dengan banyak customer di masing-masing state?':
         # Menghitung jumlah customer per state
         st.subheader("Korelasi Antara Customer dengan Seller")
-        customers_df = pd.read_csv('../data/customers_dataset.csv')
-        sellers_df = pd.read_csv('../data/sellers_dataset.csv')
+        customers_df = pd.read_csv('data/customers_dataset.csv')
+        sellers_df = pd.read_csv('data/sellers_dataset.csv')
         
         customer_state = customers_df.groupby('customer_state')['customer_unique_id'].nunique().reset_index()
         customer_state.rename(columns={'customer_unique_id': 'customer_count'}, inplace=True)
@@ -190,8 +190,8 @@ def tampilkan_visualisasi(pertanyaan):
         st.subheader("Kategori Produk Paling Laris")
 
         # Membaca data
-        products_df = pd.read_csv('../data/products_dataset.csv')
-        order_items_df = pd.read_csv('../data/order_items_dataset.csv')
+        products_df = pd.read_csv('data/products_dataset.csv')
+        order_items_df = pd.read_csv('data/order_items_dataset.csv')
 
         # Mengatasi missing values
         products_df['product_category_name'] = products_df['product_category_name'].fillna('Unknown')
@@ -260,8 +260,8 @@ def tampilkan_visualisasi(pertanyaan):
     elif pertanyaan == 'Bagaimana trend penjualan dari waktu ke waktu?':
         st.subheader("Trend Penjualan 2016-2018")
         # Gabungkan dataframe orders_df dan order_items_df
-        order_items_df = pd.read_csv('../data/order_items_dataset.csv')
-        orders_df = pd.read_csv('../data/orders_dataset.csv')
+        order_items_df = pd.read_csv('data/order_items_dataset.csv')
+        orders_df = pd.read_csv('data/orders_dataset.csv')
         
         for column in ['order_purchase_timestamp', 'order_approved_at', 'order_delivered_carrier_date',
                'order_delivered_customer_date', 'order_estimated_delivery_date']:
@@ -289,7 +289,7 @@ def tampilkan_visualisasi(pertanyaan):
         st.subheader("Metode Pembayaran Paling Banyak Digunakan")
 
         # Membaca data
-        order_payments_df = pd.read_csv('../data/order_payments_dataset.csv')
+        order_payments_df = pd.read_csv('data/order_payments_dataset.csv')
 
         # Group data berdasarkan metode pembayaran dan hitung jumlah order
         payment_method_counts = order_payments_df.groupby('payment_type')['order_id'].nunique().reset_index()
@@ -331,7 +331,7 @@ def tampilkan_visualisasi(pertanyaan):
 
     elif pertanyaan == 'Bagaimana tingkat kepuasan pelanggan terhadap produk yang dibeli?':
         st.subheader("Tingkat Kepusasan Pelanggan")
-        order_reviews_df = pd.read_csv('../data/order_reviews_dataset.csv')
+        order_reviews_df = pd.read_csv('data/order_reviews_dataset.csv')
         
         review_score_counts = order_reviews_df['review_score'].value_counts().sort_index()
 
